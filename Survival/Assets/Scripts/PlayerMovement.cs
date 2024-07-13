@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        if (Mathf.Abs(rb.velocity.y) < 0.01f) // Csak akkor ugorhat, ha éppen nem ugrásban van
+        if (Mathf.Abs(rb.velocity.y) < 0.01f)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }

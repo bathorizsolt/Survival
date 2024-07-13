@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
+    [SerializeField] float damage = 10f;
     private GameObject player;
     private bool isFired = false;
 
@@ -30,7 +31,11 @@ public class Projectile : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage((int)damage);
+            }
 
             Destroy(gameObject);
         }
