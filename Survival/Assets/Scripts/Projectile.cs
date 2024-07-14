@@ -5,36 +5,29 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float damage = 10f;
     private GameObject player;
-    private bool isFired = false;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         Vector2 direction = (player.transform.position - transform.position).normalized;
         GetComponent<Rigidbody2D>().velocity = direction * speed;
-        isFired = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (!isFired) return;
-        /*
-        player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-
-        GetComponent<Rigidbody2D>().velocity = direction * speed;
-    */
+        GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * speed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("Player"))
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage((int)damage);
+
+
             }
 
             Destroy(gameObject);
@@ -45,7 +38,6 @@ public class Projectile : MonoBehaviour
             Vector2 reflectDir = Vector2.Reflect(GetComponent<Rigidbody2D>().velocity.normalized, normal).normalized;
             GetComponent<Rigidbody2D>().velocity = reflectDir * speed;
             transform.right = reflectDir;
-
         }
         else if (other.CompareTag("Floor"))
         {

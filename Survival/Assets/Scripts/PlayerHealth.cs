@@ -3,12 +3,31 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 50;
-    private int currentHealth;
+    public float maxHealth = 50;
+    public float currentHealth;
+    public TextMeshProUGUI healthText;
 
     void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    void Update()
+    {
+        UpdateHealthUI();
+    }
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHealthUI();
+    }
+    void UpdateHealthUI()
+    {
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + currentHealth.ToString();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -19,10 +38,18 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Health"))
+        {
+            Heal(20f);
+            Destroy(collision.collider.gameObject);
+        }
+    }
 
-    void Die()
+void Die()
     {
         Destroy(gameObject);
-        // tovabbi logika
+        // tovabbi
     }
 }
