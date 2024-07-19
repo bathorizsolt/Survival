@@ -257,6 +257,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &298662967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298662969}
+  - component: {fileID: 298662968}
+  m_Layer: 0
+  m_Name: ShoeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &298662968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298662967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a46f398e5e9ab4c869a94de38cc755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoePrefab: {fileID: 8105618993009625830, guid: 02666da6a1967c64cae522c683e7f52a, type: 3}
+  spawnInterval: 18
+  xRangeMin: -10
+  xRangeMax: 10
+  spawnHeight: 4
+--- !u!4 &298662969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298662967}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.57, y: 6.72, z: -4.839029}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,8 +725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healPrefab: {fileID: 5365975684133643981, guid: f3de9cce60db33642a6ee72b81363659, type: 3}
   spawnInterval: 10
-  xRangeMin: -14
-  xRangeMax: 14
+  xRangeMin: 10
+  xRangeMax: 10
   spawnHeight: 4
 --- !u!4 &1157078561
 Transform:
@@ -1259,6 +1308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
+  speedBoostAmount: 3
+  speedBoostDuration: 5
 --- !u!50 &1869443791
 Rigidbody2D:
   serializedVersion: 4
@@ -1285,7 +1336,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1869443792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1488,7 +1539,7 @@ MonoBehaviour:
   - {fileID: 5809781844447214561, guid: 6f522c3bf74872a4a934618a45cf838b, type: 3}
   - {fileID: 8616914567203078012, guid: 11146c0b432e03e4f96e51a325598fb1, type: 3}
   projectileSpeed: 3
-  fireRate: 2
+  fireRate: 3
   SpawnPosition: {fileID: 1888295116}
   player: {fileID: 1869443788}
 --- !u!60 &1888295118
@@ -1850,3 +1901,4 @@ SceneRoots:
   - {fileID: 1157078561}
   - {fileID: 2060667922}
   - {fileID: 1219288516}
+  - {fileID: 298662969}

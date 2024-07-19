@@ -381,6 +381,8 @@
 "Assets/Scripts/PlayerHealth.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/Projectile.cs"
+"Assets/Scripts/ShoeObject.cs"
+"Assets/Scripts/ShoeSpawner.cs"
 "Assets/Scripts/TimerController.cs"
 -langversion:9.0
 

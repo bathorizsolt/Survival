@@ -4,7 +4,7 @@ public class HealSpawner : MonoBehaviour
 {
     public GameObject healPrefab;
     public float spawnInterval = 10f;
-    public float xRangeMin = -12f;
+    public float xRangeMin = -10f;
     public float xRangeMax = 12f;
     public float spawnHeight = 4f;
 

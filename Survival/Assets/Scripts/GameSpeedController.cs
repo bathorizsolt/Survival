@@ -13,7 +13,6 @@ public class GameSpeedController : MonoBehaviour
         if (elapsedTime >= speedIncreaseInterval)
         {
             Time.timeScale += speedIncreaseAmount;
-            Debug.Log("Current Speed: " + Time.timeScale.ToString("F2"));
             elapsedTime = 0f;
         }
     }
